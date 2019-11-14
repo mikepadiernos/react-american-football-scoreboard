@@ -10,10 +10,12 @@ function App() {
   let [quarter, setQuarter] = useState(1);
 
   const homeTouchdown = event => {
-    if (away < 39) {
+    if (home === 39) {
+      setHome(home);
+    } else if (away < 39) {
       setHome(home + 7);
     } else {
-      setHome(home);
+      setHome(home)
     }
   };
   const homeFieldGoal = event => {
@@ -21,7 +23,9 @@ function App() {
   };
 
   const awayTouchdown = event => {
-    if (home < 39) {
+    if (away === 39) {
+      setAway(away);
+    } else if (home < 39) {
       setAway(away + 7);
     } else {
       setAway(away);
@@ -92,12 +96,12 @@ function App() {
         <div className="homeButtons" style={divStyle}>
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
           <button onClick={homeTouchdown} className="homeButtons__touchdown" style={buttonStyle}>Home Touchdown</button>
-          <button onClick={event => setQuarter(1)} className="homeButtons__reset" style={buttonStyle}>Reset Touchdown</button>
+          <button onClick={event => setHome(32)} className="homeButtons__reset" style={buttonStyle}>Reset Touchdown</button>
           <button onClick={homeFieldGoal} className="homeButtons__fieldGoal" style={buttonStyle}>Home Field Goal</button>
         </div>
         <div className="awayButtons" style={divStyle}>
           <button onClick={awayTouchdown} className="awayButtons__touchdown" style={buttonStyle}>Away Touchdown</button>
-          <button onClick={event => setQuarter(1)} className="awayButtons__reset" style={buttonStyle}>Reset Touchdown</button>
+          <button onClick={event => setAway(32)} className="awayButtons__reset" style={buttonStyle}>Reset Touchdown</button>
           <button onClick={awayFieldGoal} className="awayButtons__fieldGoal" style={buttonStyle}>Away Field Goal</button>
         </div>
         <div className="quarterButtons" style={divStyle}>
