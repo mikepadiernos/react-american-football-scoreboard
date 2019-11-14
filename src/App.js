@@ -1,7 +1,7 @@
 //TODO: STEP 1 - Import the useState hook.
 import React, {useState} from "react";
 import "./App.css";
-import BottomRow from "./BottomRow";
+// import BottomRow from "./BottomRow";
 
 function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
@@ -29,6 +29,12 @@ function App() {
     } else {
       setQuarter(quarter + 1);
     }
+  };
+
+  let buttonStyle = {
+    borderRadius: '3px',
+    width: '98%',
+    margin: '1%',
   };
 
   return (
@@ -71,16 +77,16 @@ function App() {
       <section className="buttons">
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button onClick={homeTouchdown} className="homeButtons__touchdown">Home Touchdown</button>
-          <button onClick={homeFieldGoal} className="homeButtons__fieldGoal">Home Field Goal</button>
+          <button onClick={homeTouchdown} className="homeButtons__touchdown" style={buttonStyle}>Home Touchdown</button>
+          <button onClick={homeFieldGoal} className="homeButtons__fieldGoal" style={buttonStyle}>Home Field Goal</button>
         </div>
         <div className="awayButtons">
-          <button onClick={awayTouchdown} className="awayButtons__touchdown">Away Touchdown</button>
-          <button onClick={awayFieldGoal} className="awayButtons__fieldGoal">Away Field Goal</button>
+          <button onClick={awayTouchdown} className="awayButtons__touchdown" style={buttonStyle}>Away Touchdown</button>
+          <button onClick={awayFieldGoal} className="awayButtons__fieldGoal" style={buttonStyle}>Away Field Goal</button>
         </div>
         <div className="quarterButtons">
-          <button onClick={changeQuarter} className="awayButtons__touchdown">Change Quarter</button>
-          <button onClick={event => setQuarter(1)} className="awayButtons__fieldGoal">Reset Quarter</button>
+          <button onClick={changeQuarter} className="awayButtons__touchdown" style={buttonStyle}>Change Quarter</button>
+          <button onClick={event => setQuarter(1)} className="awayButtons__fieldGoal" style={buttonStyle}>Reset Quarter</button>
         </div>
       </section>
     </div>
